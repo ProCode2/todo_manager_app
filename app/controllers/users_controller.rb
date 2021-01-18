@@ -18,4 +18,10 @@ class UsersController < ApplicationController
     response = "Hey #{name}, You are registered successfully!"
     render plain: response
   end
+
+  def login
+    email = params[:email]
+    password = params[:password]
+    render plain: User.check_credentials(email, password)
+  end
 end
