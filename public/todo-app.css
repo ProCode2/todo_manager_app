@@ -1,0 +1,136 @@
+/* globals */
+
+body {
+  font-family: sans-serif;
+}
+
+/* Main Todo Area */
+
+.TodoList {
+  width: 460px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+/* Title */
+
+.TodoList-Heading {
+  color: #453c52;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Add Todo Area */
+
+.AddTodo {
+  display: flex;
+  align-items: stretch;
+  height: 32px;
+  margin-bottom: 24px;
+}
+
+.AddTodo-TodoText {
+  border: 1px solid #bfb8cc;
+  border-radius: 4px;
+  color: #453c52;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+.AddTodo-TodoDate {
+  margin: 0px 10px;
+  border: 1px solid #bfb8cc;
+  border-radius: 4px;
+  color: #453c52;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.AddTodo-Button {
+  background: #48bb78;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  padding: 6px 22px;
+  cursor: pointer;
+}
+
+/* Todo Listings */
+.Todos-Heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.Todos-Heading-Text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #453c52;
+  letter-spacing: 0.1px;
+  margin-right: 8px;
+  line-height: 1.4;
+}
+
+.Todos-Heading-Num {
+  font-size: 12px;
+  color: #453c52;
+  letter-spacing: 0.09px;
+}
+
+.Todos-ListItem {
+  width: max-content;
+  font-size: 14px;
+  margin-left: 8px;
+  margin-bottom: 6px;
+  color: #453c52;
+}
+
+.Todos-ListItem:hover {
+  background: #f1edf7;
+  border-radius: 4px;
+}
+
+.Todos-Lebel {
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+}
+
+.Todos-CheckBox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #bfb8cc;
+  border-radius: 4px;
+}
+
+.Todos-Text {
+  margin-left: 8px;
+}
+
+.Todos-Text-Date {
+  font-size: 12px;
+  color: #726a7e;
+  letter-spacing: 0.09px;
+  margin-left: 10px;
+}
+
+.Todos-Overdue {
+  font-size: 12px;
+  color: #c53030;
+  letter-spacing: 0.09px;
+  margin-left: 10px;
+}
+
+/* Delete Image */
+.Todos-Delete {
+  display: none;
+  width: 16px;
+  height: 16px;
+  margin-left: 24px;
+}
+
+.Todos-ListItem:hover .Todos-Delete {
+  display: inline;
+}

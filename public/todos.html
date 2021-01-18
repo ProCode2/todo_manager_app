@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="todo-app.css" />
+    <title>Saas-201</title>
+  </head>
+
+  <body>
+    <!-- Main TodoList Area -->
+    <main class="TodoList">
+      <h1 class="TodoList-Heading">My Todo-list</h1>
+      <!-- Add Todo Area -->
+      <section class="AddTodo">
+        <input
+          class="AddTodo-TodoText"
+          placeholder="What's next?"
+          type="text"
+        />
+        <input class="AddTodo-TodoDate" type="date" />
+        <input class="AddTodo-Button" type="button" value="Add" />
+      </section>
+      <!-- Todo Listings -->
+      <section class="Todos">
+        <div class="Todos-Heading">
+          <p class="Todos-Heading-Text">Due Today</p>
+          <p class="Todos-Heading-Num">0/4</p>
+        </div>
+        <ul class="Todos-List">
+          <li class="Todos-ListItem">
+            <label class="Todos-Lebel">
+              <input class="Todos-CheckBox" type="checkbox" />
+              <p class="Todos-Text">Submit Saas 201 project</p>
+              <p class="Todos-Overdue">Overdue</p>
+              <a href="#">
+                <img class="Todos-Delete" src="./delete.png" alt="delete">
+              </a>
+            </label>
+          </li>
+
+          <li class="Todos-ListItem">
+            <label class="Todos-Lebel">
+              <input class="Todos-CheckBox" type="checkbox" />
+              <p class="Todos-Text">Call accountant</p>
+              <a href="#">
+                <img class="Todos-Delete" src="./delete.png" alt="delete">
+              </a>
+            </label>
+          </li>
+        </ul>
+      </section>
+      <section class="Todos">
+        <div class="Todos-Heading">
+          <p class="Todos-Heading-Text">Due Tomorrow</p>
+          <p class="Todos-Heading-Num">0/3</p>
+        </div>
+        <ul class="Todos-List">
+          <li class="Todos-ListItem">
+            <label class="Todos-Lebel">
+              <input class="Todos-CheckBox" type="checkbox" />
+              <p class="Todos-Text">Refil groceries</p>
+              <a href="#">
+                <img class="Todos-Delete" src="./delete.png" alt="delete">
+              </a>
+            </label>
+          </li>
+        </ul>
+      </section>
+      <section>
+      <section class="Todos">
+        <div class="Todos-Heading">
+          <p class="Todos-Heading-Text">Remaining</p>
+          <p class="Todos-Heading-Num">0/3</p>
+        </div>
+        <ul class="Todos-List">
+          <li class="Todos-ListItem">
+            <label class="Todos-Lebel">
+              <input class="Todos-CheckBox" type="checkbox" />
+              <p class="Todos-Text">Type Something<span class="Todos-Text-Date">Jan 21</span></p>
+              <a href="#">
+                <img class="Todos-Delete" src="./delete.png" alt="delete">
+              </a>
+            </label>
+          </li>
+          <li class="Todos-ListItem">
+            <label class="Todos-Lebel">
+              <input class="Todos-CheckBox" type="checkbox" />
+              <p class="Todos-Text">Type Something<span class="Todos-Text-Date">Jan 22</span></p>
+              <a href="#">
+                <img class="Todos-Delete" src="./delete.png" alt="delete">
+              </a>
+            </label>
+          </li>
+          <li class="Todos-ListItem">
+            <label class="Todos-Lebel">
+              <input class="Todos-CheckBox" type="checkbox" />
+              <p class="Todos-Text">Type Something<span class="Todos-Text-Date">Jan 23</span></p>
+              <a href="#">
+                <img class="Todos-Delete" src="./delete.png" alt="delete">
+              </a>
+            </label>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
