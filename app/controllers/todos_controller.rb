@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   # show list of todos  (resource route)
   def index
-    render plain: Todo.all.order(:due_date).to_formatted_list
+    render "index"
   end
 
   # show a single todo  (resource route)

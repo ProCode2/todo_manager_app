@@ -1,0 +1,26 @@
+<!-- Main TodoList Area -->
+<main class="TodoList">
+  <h1 class="TodoList-Heading">My Todo-list</h1>
+  <!-- Add Todo Area -->
+  <section class="AddTodo">
+    <input
+      class="AddTodo-TodoText"
+      placeholder="What's next?"
+      type="text"
+    />
+    <input class="AddTodo-TodoDate" type="date" />
+    <input class="AddTodo-Button" type="button" value="Add" />
+  </section>
+
+  <%= render partial: "todo_section", locals: {
+    section_title: "Overdue",
+    todos: Todo.overdue
+  } %>
+  <%= render partial: "todo_section", locals: {
+    section_title: "Due Today",
+    todos: Todo.due_today
+  } %>
+  <%= render partial: "todo_section", locals: {
+    section_title: "Due Later",
+    todos: Todo.due_later
+  } %>

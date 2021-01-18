@@ -1,12 +1,24 @@
 class Todo < ApplicationRecord
-  # format a string to render on the page
-  def to_formatted_string
-    is_completed = completed ? "X" : " "
-    "#{id}. #{due_date.to_s(:long)} #{todo_text} [#{is_completed}]"
+  def due_today?
+    due_date == Date.today
   end
 
-  # format a list of todos to render on the page
-  def self.to_formatted_list
-    all.map { |todo| todo.to_formatted_string }.join("\n")
+  # return all the todos that are overdue
+  def self.overdue
+    all.where("due_date < :date", { date: Date.today })
+  end
+
+  # return all the todos that are due today
+  def self.due_today
+    all.where(due_date: Date.today)
+  end
+
+  def self.completed
+    all.where(completed: true)
+  end
+
+  # return all the todos that are due later
+  def self.due_later
+    all.where("due_date > :date", { date: Date.today })
   end
 end
