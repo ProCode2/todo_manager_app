@@ -10,12 +10,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="Container">
+  <body>
+    <section class="Greet-Section">
     <% if @current_user %>
-      <p>
-        <%= @current_user.first_name %>
-      </p>
+      <p class="Greet-Heading">Welcome <%= @current_user.first_name %>!</p>
+      <%= link_to "Sign Out", destroy_session_path, method: "delete" %>
     <% end %>
+    </section>
     <%= yield %>
   </body>
 </html>
