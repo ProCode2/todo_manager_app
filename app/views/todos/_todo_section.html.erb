@@ -4,7 +4,7 @@
       <p class="Todos-Heading-Num"><%= todos.completed.count %>/<%= todos.count %></p>
     </div>
     <ul class="Todos-List">
-      <% todos.all.map do |todo| %>
+      <% todos.all.each do |todo| %>
         <li class="Todos-ListItem">
           <label class="Todos-Lebel">
             <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
@@ -16,9 +16,15 @@
               />
             <% end %>
             <p class="<%= todo.completed ? "Todos-Text Todo-Completed" : "Todos-Text" %>"><%= todo.todo_text %><span class="Todos-Text-Date"><%= (todo.due_today?) ? nil : todo.due_date.to_s(:short) %></span></p>
-            <a href="#">
-              <%= image_tag(asset_path("delete.png"), :alt => "delete", :class => "Todos-Delete") %>
-            </a>
+            <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
+              <input
+                class="Todos-Delete"
+                type="image"
+                src=<%= asset_path("delete.png") %>
+                alt="submit"
+                onClick="this.form.submit()"
+              />
+            <% end %>
           </label>
         </li>
       <% end %>

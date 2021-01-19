@@ -55,4 +55,18 @@ class TodosController < ApplicationController
       render plain: "Could not update your todo status"
     end
   end
+
+  def destroy
+    id = params[:id]
+
+    # if id is not an integer return with message
+    if (id.to_i == 0)
+      render plain: "Please provide an integer from 1 to #{Todo.count}"
+      return
+    end
+
+    todo = Todo.find(id)
+    todo.destroy
+    redirect_to todos_path
+  end
 end
