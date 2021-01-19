@@ -14,13 +14,13 @@
 
   <%= render partial: "todo_section", locals: {
     section_title: "Overdue",
-    todos: Todo.overdue
+    todos: @todos.overdue
   } %>
   <%= render partial: "todo_section", locals: {
     section_title: "Due Today",
-    todos: Todo.due_today
+    todos: @todos.due_today
   } %>
   <%= render partial: "todo_section", locals: {
     section_title: "Due Later",
-    todos: Todo.due_later
+    todos: @todos.due_later
   } %>

@@ -5,6 +5,10 @@ class Todo < ApplicationRecord
     due_date == Date.today
   end
 
+  def self.of_user(user_id)
+    all.where(user_id: user_id)
+  end
+
   # return all the todos that are overdue and not completed
   def self.overdue
     all.where("due_date < :date and completed = false ", { date: Date.today }).order(:id)
