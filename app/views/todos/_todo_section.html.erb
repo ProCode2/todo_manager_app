@@ -8,7 +8,7 @@
         <li class="Todos-ListItem">
           <label class="Todos-Lebel">
             <input class="Todos-CheckBox" type="checkbox" <%= todo.completed ? "checked" : nil %>/>
-            <p class="Todos-Text"><%= todo.todo_text %><span class="Todos-Text-Date"><%= (todo.due_today?) ? nil : todo.due_date.to_s(:short) %></span></p>
+            <p class="<%= todo.completed ? "Todo-Text Todo-Completed" : "Todo-Text" %>"><%= todo.todo_text %><span class="Todos-Text-Date"><%= (todo.due_today?) ? nil : todo.due_date.to_s(:short) %></span></p>
             <a href="#">
               <%= image_tag(asset_path("delete.png"), :alt => "delete", :class => "Todos-Delete") %>
             </a>

@@ -4,6 +4,12 @@ body {
   font-family: sans-serif;
 }
 
+/* utility */
+
+.Todo-Completed {
+  text-decoration: line-through;
+}
+
 /* Main Todo Area */
 
 .TodoList {
