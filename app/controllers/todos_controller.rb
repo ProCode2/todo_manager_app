@@ -18,8 +18,7 @@ class TodosController < ApplicationController
     )
 
     if !new_todo.save
-      flash[:error] = new_todo.errors.full_messages.join(", ")
-    end
+      flash[:error] = new_todo.show_errors
     redirect_to todos_path
   end
 
@@ -35,9 +34,7 @@ class TodosController < ApplicationController
       return
     end
 
-    todo_to_be_updated = current_user.todos.find(id)
-    todo_to_be_updated.completed = completed
-    update_status = todo_to_be_updated.save
+    update_status = Todo.update_todo(id)
     # if updating the todo was a failure
     if !update_status
       flash[:error] = "Could not update todo at the moment/"
@@ -49,13 +46,14 @@ class TodosController < ApplicationController
     id = params[:id].to_i
 
     # if id is not an integer return with message
-    if (id < 0)
-      render plain: "Please provide an integer from 1 to #{Todo.count}"
+    if (id <= 0)
+      flash[:error] = "Invalid Input"
+      redirect_to todos_path
       return
     end
 
-    todo = current_user.todos.find(id)
-    todo.destroy
+    # delete a todo
+    Todo.delete_todo
     redirect_to todos_path
   end
 end

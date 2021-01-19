@@ -7,13 +7,17 @@ class UsersController < ApplicationController
 
   # register a new user to table (resource route)
   def create
-    new_user = User.create!(
+    new_user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
     )
-    session[:current_user_id] = new_user.id
+    if new_user.save
+      session[:current_user_id] = new_user.id
+    else
+      flash[:error] = new_user.show_errors
+    end
     redirect_to "/"
   end
 end
