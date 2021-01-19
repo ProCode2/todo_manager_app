@@ -55,10 +55,10 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    id = params[:id]
+    id = params[:id].to_i
 
     # if id is not an integer return with message
-    if (id.to_i == 0)
+    if (id < 0)
       render plain: "Please provide an integer from 1 to #{Todo.count}"
       return
     end

@@ -10,7 +10,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="Container">
+    <% if @current_user %>
+      <p>
+        <%= @current_user.first_name %>
+      </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
