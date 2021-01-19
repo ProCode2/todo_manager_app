@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :todo
+  has_secure_password
+
   # format user data to render on a page
   def to_formatted_string
     "#{id} #{name}"

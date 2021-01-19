@@ -1,6 +1,6 @@
 <!-- Main TodoList Area -->
 <main class="TodoList">
-  <h1 class="TodoList-Heading">My Todo-list</h1>
+  <h1 class="Heading">My Todo-list</h1>
   <!-- Add Todo Area -->
   <%= form_with(url: "/todos", method: "post", class: "AddTodo") do |form| %>
     <%= form.text_field(:todo_text, {
@@ -9,7 +9,7 @@
       })
     %>
     <%= form.date_field(:due_date, { class: "AddTodo-TodoDate" }) %>
-    <%= form.submit(:Add, { class: "AddTodo-Button" }) %>
+    <%= form.submit(:Add, { class: "Button" }) %>
   <% end %>
 
   <%= render partial: "todo_section", locals: {

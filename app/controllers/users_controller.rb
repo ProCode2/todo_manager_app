@@ -1,22 +1,17 @@
 class UsersController < ApplicationController
-  # render a list of users (resource route)
-  def index
-    render plain: User.all.order(:id).to_formatted_list
+  def new
+    render "users/new"
   end
 
   # register a new user to table (resource route)
   def create
-    name = params[:name]
-    email = params[:email]
-    password = params[:password]
     new_user = User.create!(
-      name: name,
-      email: email,
-      password: password,
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: params[:password],
     )
-
-    response = "Hey #{name}, You are registered successfully!"
-    render plain: response
+    redirect_to "/"
   end
 
   # check if uuser gave valid credentials

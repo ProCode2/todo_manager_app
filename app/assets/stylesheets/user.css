@@ -1,0 +1,28 @@
+.Registration-Area {
+  width: 460px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.User-Registration {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  align-items: center;
+  box-shadow: 2px 2px 4px #bfb8cc, -2px -2px 4px #bfb8cc;
+}
+
+.Form-Input {
+  margin: 1rem 0;
+}
+
+.Form-Input p {
+  margin-bottom: 8px;
+}
+
+.Form-Input input {
+  border: 1px solid #bfb8cc;
+  border-radius: 4px;
+  padding: 6px 12px;
+}

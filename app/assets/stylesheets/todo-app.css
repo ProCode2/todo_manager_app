@@ -4,6 +4,24 @@ body {
   font-family: sans-serif;
 }
 
+.Heading {
+  color: #453c52;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.Button {
+  background: #48bb78;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  padding: 6px 22px;
+  cursor: pointer;
+}
+
 /* utility */
 
 .Todo-Completed {
@@ -17,17 +35,6 @@ body {
   margin: 0 auto;
   margin-top: 60px;
   margin-bottom: 24px;
-}
-
-/* Title */
-
-.TodoList-Heading {
-  color: #453c52;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.14px;
-  line-height: 1.6;
-  margin-bottom: 12px;
 }
 
 /* Add Todo Area */
@@ -53,15 +60,6 @@ body {
   color: #453c52;
   padding: 6px;
   font-size: 14px;
-}
-
-.AddTodo-Button {
-  background: #48bb78;
-  border-radius: 4px;
-  border: 0;
-  color: white;
-  padding: 6px 22px;
-  cursor: pointer;
 }
 
 /* Todo Listings */

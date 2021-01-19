@@ -1,0 +1,25 @@
+<main class="Registration-Area">
+  <h1 class="Heading">Welcome To Todo-Manager-24x7</h1>
+
+  <%= form_with(url: "/users", method: "post") do |form| %>
+    <section class="User-Registration">
+      <div class="Form-Input">
+        <p>First Name:</p>
+        <%= form.text_field :first_name, required: true, autofocus: true %>
+      </div>
+      <div class="Form-Input">
+        <p>Last Name:</p>
+        <%= form.text_field :last_name %>
+      </div>
+      <div class="Form-Input">
+        <p>Email:</p>
+        <%= form.email_field :email %>
+      </div>
+      <div class="Form-Input">
+        <p>Password:</p>
+        <%= form.password_field :password, required: true %>
+      </div>
+      <%= form.submit "Sign Up" , class: "Button" %>
+    </section>
+  <% end %>
+</main>
