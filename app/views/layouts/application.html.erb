@@ -11,12 +11,19 @@
   </head>
 
   <body>
-    <section class="Greet-Section">
-    <% if @current_user %>
-      <p class="Greet-Heading">Welcome <%= @current_user.first_name %>!</p>
-      <%= link_to "Sign Out", destroy_session_path, method: "delete" %>
+
+      <% if @current_user %>
+        <section class="Greet-Section">
+          <p class="Greet-Heading">Welcome <%= @current_user.first_name %>!</p>
+          <%= link_to "Sign Out", destroy_session_path, method: "delete" %>
+        </section>
+      <% end %>
+
+    <% if flash[:error] %>
+      <div class="Flash-Error">
+        <p><%= flash[:error] %></p>
+      </div>
     <% end %>
-    </section>
     <%= yield %>
   </body>
 </html>
