@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+}
+
+.Heading {
+  color: #453c52;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.Button {
+  background: #48bb78;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  padding: 6px 22px;
+  cursor: pointer;
+}
+
+.Container {
+  width: 460px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 24px;
+}

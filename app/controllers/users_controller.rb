@@ -13,11 +13,4 @@ class UsersController < ApplicationController
     )
     redirect_to "/"
   end
-
-  # check if uuser gave valid credentials
-  def login
-    email = params[:email]
-    password = params[:password]
-    render plain: User.check_credentials(email, password)
-  end
 end

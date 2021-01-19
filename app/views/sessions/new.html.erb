@@ -1,0 +1,17 @@
+<main class="Container">
+  <h1 class="Heading">Sign In!</h1>
+
+  <%= form_with(url: sessions_path, method: "post") do |form| %>
+    <section class="User-Registration">
+      <div class="Form-Input">
+        <p>Email:</p>
+        <%= form.email_field :email %>
+      </div>
+      <div class="Form-Input">
+        <p>Password:</p>
+        <%= form.password_field :password, required: true %>
+      </div>
+      <%= form.submit "Sign In" , class: "Button" %>
+    </section>
+  <% end %>
+</main>

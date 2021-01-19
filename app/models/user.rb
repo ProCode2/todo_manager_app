@@ -11,20 +11,4 @@ class User < ApplicationRecord
   def self.to_formatted_list
     all.map { |user| user.to_formatted_string }.join("\n")
   end
-
-  # check if the email password combination exists on the table
-  def self.check_credentials(email, password)
-    user = all.where("email = :email and password = :password", {
-      email: email,
-      password: password,
-    }).first
-
-    # if an user was found
-    if !user
-      return "false"
-    else
-      # otheriwse
-      return "true"
-    end
-  end
 end
