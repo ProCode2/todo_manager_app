@@ -13,6 +13,7 @@ class Todo < ApplicationRecord
     all.where(due_date: Date.today)
   end
 
+  # return all comoleted todos
   def self.completed
     all.where(completed: true)
   end
