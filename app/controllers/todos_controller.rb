@@ -1,6 +1,4 @@
 class TodosController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   # show list of todos  (resource route)
   def index
     render "index"

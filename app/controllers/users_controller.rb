@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   # render a list of users (resource route)
   def index
     render plain: User.all.order(:id).to_formatted_list

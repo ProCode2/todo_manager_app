@@ -7,23 +7,33 @@
       <% todos.all.each do |todo| %>
         <li class="Todos-ListItem">
           <label class="Todos-Lebel">
-            <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
-              <input
-                name="completed"
-                class="Todos-CheckBox"
-                type="checkbox" <%= todo.completed ? "checked" : nil %>
-                onClick="this.form.submit()"
-              />
+
+            <%= form_with(url: "/todos/#{todo.id}", method: "put") do |form| %>
+              <%= form.check_box(:completed, {
+                class: "Todos-CheckBox",
+                onClick: "this.form.submit()",
+                checked: todo.completed ? true : false
+                })
+              %>
             <% end %>
-            <p class="<%= todo.completed ? "Todos-Text Todo-Completed" : "Todos-Text" %>"><%= todo.todo_text %><span class="Todos-Text-Date"><%= (todo.due_today?) ? nil : todo.due_date.to_s(:short) %></span></p>
-            <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
-              <input
-                class="Todos-Delete"
-                type="image"
-                src=<%= asset_path("delete.png") %>
-                alt="submit"
-                onClick="this.form.submit()"
-              />
+
+            <p
+              class="<%= todo.completed ? "Todos-Text Todo-Completed" : "Todos-Text" %>">
+              <%= todo.todo_text %>
+              <span class="Todos-Text-Date">
+              <%= (todo.due_today?) ? nil : todo.due_date.to_s(:short) %>
+              </span>
+            </p>
+
+            <%= form_with(url: "/todos/#{todo.id}", method: "delete") do |form| %>
+              <%= form.submit("", {
+                class: "Todos-Delete",
+                type: "image",
+                src: asset_path('delete.png'),
+                alt: "submit",
+                onClick: "this.form.submit()"
+                })
+              %>
             <% end %>
           </label>
         </li>

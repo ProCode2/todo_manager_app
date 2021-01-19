@@ -2,16 +2,15 @@
 <main class="TodoList">
   <h1 class="TodoList-Heading">My Todo-list</h1>
   <!-- Add Todo Area -->
-  <form class="AddTodo" action="/todos" method="POST">
-    <input
-      class="AddTodo-TodoText"
-      placeholder="What's next?"
-      type="text"
-      name="todo_text"
-    />
-    <input class="AddTodo-TodoDate" type="date" name="due_date"/>
-    <input class="AddTodo-Button" type="submit" value="Add" />
-  </form>
+  <%= form_with(url: "/todos", method: "post", class: "AddTodo") do |form| %>
+    <%= form.text_field(:todo_text, {
+      class: "AddTodo-TodoText",
+      placeholder: "What's next?"
+      })
+    %>
+    <%= form.date_field(:due_date, { class: "AddTodo-TodoDate" }) %>
+    <%= form.submit(:Add, { class: "AddTodo-Button" }) %>
+  <% end %>
 
   <%= render partial: "todo_section", locals: {
     section_title: "Overdue",
