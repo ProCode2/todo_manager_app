@@ -2,15 +2,16 @@
 <main class="TodoList">
   <h1 class="TodoList-Heading">My Todo-list</h1>
   <!-- Add Todo Area -->
-  <section class="AddTodo">
+  <form class="AddTodo" action="/todos" method="POST">
     <input
       class="AddTodo-TodoText"
       placeholder="What's next?"
       type="text"
+      name="todo_text"
     />
-    <input class="AddTodo-TodoDate" type="date" />
-    <input class="AddTodo-Button" type="button" value="Add" />
-  </section>
+    <input class="AddTodo-TodoDate" type="date" name="due_date"/>
+    <input class="AddTodo-Button" type="submit" value="Add" />
+  </form>
 
   <%= render partial: "todo_section", locals: {
     section_title: "Overdue",

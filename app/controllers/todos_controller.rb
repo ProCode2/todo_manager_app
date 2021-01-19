@@ -30,8 +30,7 @@ class TodosController < ApplicationController
       completed: false,
     )
 
-    response = "Hey, Your new todo is created with an id = #{new_todo.id}."
-    render plain: response
+    redirect_to todos_path
   end
 
   # update the completed status of a todo  (resource route)
