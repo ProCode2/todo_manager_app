@@ -7,7 +7,14 @@
       <% todos.all.map do |todo| %>
         <li class="Todos-ListItem">
           <label class="Todos-Lebel">
-            <input class="Todos-CheckBox" type="checkbox" <%= todo.completed ? "checked" : nil %>/>
+            <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
+              <input
+                name="completed"
+                class="Todos-CheckBox"
+                type="checkbox" <%= todo.completed ? "checked" : nil %>
+                onClick="this.form.submit()"
+              />
+            <% end %>
             <p class="<%= todo.completed ? "Todos-Text Todo-Completed" : "Todos-Text" %>"><%= todo.todo_text %><span class="Todos-Text-Date"><%= (todo.due_today?) ? nil : todo.due_date.to_s(:short) %></span></p>
             <a href="#">
               <%= image_tag(asset_path("delete.png"), :alt => "delete", :class => "Todos-Delete") %>

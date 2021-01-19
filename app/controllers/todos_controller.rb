@@ -49,7 +49,7 @@ class TodosController < ApplicationController
     update_status = todo_to_be_updated.save
     # if updating the todo was a success
     if update_status
-      render plain: "Hey, the status of your todo with id #{id} is updated to #{completed}"
+      redirect_to todos_path
     else
       #otherwise
       render plain: "Could not update your todo status"
