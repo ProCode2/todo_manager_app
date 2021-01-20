@@ -2,13 +2,14 @@ class SessionsController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def new
+    render "new"
   end
 
   def create
     email = params[:email]
     user = User.find_by(email: email)
     if user && user.authenticate(params[:password])
-      session[:current_user_id] = user.id
+      add_session(user.id)
       redirect_to todos_path
     else
       flash[:error] = "Invalid login attempt, Please try again"
@@ -17,8 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:current_user_id] = nil
-    @current_user = nil
+    remove_session()
     redirect_to "/"
   end
 end

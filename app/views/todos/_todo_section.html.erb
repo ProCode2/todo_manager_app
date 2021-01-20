@@ -6,7 +6,7 @@
     <ul class="Todos-List">
       <% todos.all.each do |todo| %>
         <li class="Todos-ListItem">
-          <label class="Todos-Lebel">
+          <label class="Todos-Label">
 
             <%= form_with(url: "/todos/#{todo.id}", method: "put") do |form| %>
               <%= form.check_box(:completed, {

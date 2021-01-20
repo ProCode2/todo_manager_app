@@ -18,4 +18,15 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
+
+  # start an user session
+  def add_session(user_id)
+    session[:current_user_id] = user_id
+  end
+
+  # stop an user session
+  def remove_session()
+    session[:current_user_id] = nil
+    @current_user = nil
+  end
 end

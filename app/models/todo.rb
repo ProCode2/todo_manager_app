@@ -9,21 +9,40 @@ class Todo < ApplicationRecord
     due_date == Date.today
   end
 
+  def overdue?
+    due_date < Date.today
+  end
+
   def self.of_user(user_id)
     all.where(user_id: user_id)
   end
 
   # update status of an user's todo
-  def self.update_todo(todo_id)
-    todo_to_be_updated = current_user.todos.find(id)
+  # using find_by_id instead of find because the former lets me silently check errors without throwing exceptions
+  def self.update_todo(todo_id, completed, current_user)
+    todo_to_be_updated = current_user.todos.find_by_id(todo_id)
+
+    if !todo_to_be_updated
+      return nil
+    elsif todo_to_be_updated.overdue?
+      # dilemma - should I use delete_todo, cause that'll make a db call again
+      return delete_todo(todo_id, current_user)
+    end
+
+
     todo_to_be_updated.completed = completed
     todo_to_be_updated.save
   end
 
   # delete a todo
-  def self.delete_todo(todo_id)
-    todo = current_user.todos.find(id)
-    todo.destroy
+  def self.delete_todo(todo_id, current_user)
+    todo = current_user.todos.find_by_id(todo_id)
+    if !todo
+      return nil
+    else
+      todo.destroy
+      todo.destroyed?
+    end
   end
 
   # return all the todos that are overdue and not completed

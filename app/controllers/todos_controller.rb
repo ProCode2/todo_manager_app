@@ -19,6 +19,7 @@ class TodosController < ApplicationController
 
     if !new_todo.save
       flash[:error] = new_todo.show_errors
+    end
     redirect_to todos_path
   end
 
@@ -34,10 +35,10 @@ class TodosController < ApplicationController
       return
     end
 
-    update_status = Todo.update_todo(id)
+    update_status = Todo.update_todo(id, completed, current_user)
     # if updating the todo was a failure
     if !update_status
-      flash[:error] = "Could not update todo at the moment/"
+      flash[:error] = "Could not update todo at the moment."
     end
     redirect_to todos_path
   end
@@ -53,7 +54,10 @@ class TodosController < ApplicationController
     end
 
     # delete a todo
-    Todo.delete_todo
+    delete_status = Todo.delete_todo(id, current_user)
+    if !delete_status
+      flash[:error] = "Could not delete todo at the momment"
+    end
     redirect_to todos_path
   end
 end
