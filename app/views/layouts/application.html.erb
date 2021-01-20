@@ -19,11 +19,7 @@
         </section>
       <% end %>
 
-    <% if flash[:error] %>
-      <div class="Flash-Error">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
+      <%= render partial: "layouts/flash_messages" %>
     <%= yield %>
   </body>
 </html>
